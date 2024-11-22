@@ -1,7 +1,8 @@
 #
 # Orbital Intelligence Python Coding Samples 
 #
-# WifiQRCodeGenerator - Creates a QR code for joining a WiFi network
+# ContactCardQRCodeGenerator - Creates a QR Code for a VCard Contact Card that 
+#                              will create a new contact when scanned with your phone
 #
 # Copyright 2023-2024 Orbital Intelligence LLC
 #
