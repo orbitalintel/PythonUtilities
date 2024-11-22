@@ -1,0 +1,26 @@
+{
+    "config":
+    {
+        "FrontColor":
+        {
+            "r": 1,
+            "g": 1,
+            "b": 101
+        },
+        "BackColor":
+        {
+            "r": 255,
+            "g": 255,
+            "b": 255
+        },
+        "ModuleStyle": "GappedSquare",
+        "Size": 5,
+        "FirstName": "first_name",
+        "LastName": "last_name",
+        "Title": "title (CEO, Manager, Developer, etc)",
+        "Organization": "org_name",
+        "Phone": "work_phone",
+        "Email": "work_email",
+        "Url": "website_url"
+    }
+}
