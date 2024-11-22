@@ -1,0 +1,23 @@
+{
+    "config":
+    {
+        "FrontColor":
+        {
+            "r": 1,
+            "g": 1,
+            "b": 101
+        },
+        "BackColor":
+        {
+            "r": 255,
+            "g": 255,
+            "b": 255
+        },
+        "ModuleStyleEngagement": "GappedSquare",
+        "ModuleStyleUrl": "VerticalBars",
+        "Size": 5,
+        "Border": 2,
+        "Url": "https://www.example.com",
+        "EmbedImage": false
+    }
+}
