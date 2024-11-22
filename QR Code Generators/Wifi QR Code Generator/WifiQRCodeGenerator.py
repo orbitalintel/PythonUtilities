@@ -1,7 +1,7 @@
 #
 # Orbital Intelligence Python Coding Samples 
 #
-# WifiQRCodeGenerator - Creates a QR code for joining a WiFi network
+# WifiQRCodeGenerator - Creates a QR code for automatically joining a WiFi network
 #
 # Copyright 2024 Orbital Intelligence LLC
 #
