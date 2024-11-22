@@ -1,5 +1,5 @@
 #
-# Orbital Intelligence 
+# Orbital Intelligence Python Coding Samples 
 #
 # Png2Icon - Generate a .ico file from a .png file
 #
@@ -112,7 +112,7 @@ def main():
 		, formatter_class=RawTextHelpFormatter)
 
     parser.add_argument('sourcefile', help=f'Provide the source .PNG file that will be converted to a .ICO file.')
-    parser.add_argument("--destfile",  "-o", default="", help="Custom .ico filename.\nDefault destfile is sourcefile.ico.")
+    parser.add_argument("--destfile",  "-df", default="", help="Custom .ico filename.\nDefault destfile is sourcefile.ico.")
     parser.add_argument("--verbose",  "-v", action="store_true", help="Flag to display verbose output \nVerbose output is disabled by default")
     args = parser.parse_args()
 
