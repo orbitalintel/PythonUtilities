@@ -13,7 +13,7 @@
             "g": 255,
             "b": 255
         },
-        "ModuleStyleWifi": "GappedSquare",
+        "ModuleStyleW": "GappedSquare",
         "Size": 5,
         "Border": 2,
         "EmbedImage": false

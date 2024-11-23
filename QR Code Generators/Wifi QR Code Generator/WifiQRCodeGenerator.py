@@ -62,8 +62,7 @@ class Config:
     backColorGreen = 0
     backColorBlue = 0
 
-    moduleStyleWifi = ''
-    moduleStyleOnboarding = ''
+    ModuleStyle = ''
     versionSize = 5
     border = 4
 
@@ -91,18 +90,18 @@ class Config:
         self.versionSize = configData['config']['Size']
         self.border = configData['config']['Border']
 
-        if (configData['config']['ModuleStyleWifi'].lower() == 'gappedsquare'):
-            self.moduleStyleWifi = MODULE_DRAWER_STYLE_GAPPED_SQUARE
-        elif (configData['config']['ModuleStyleWifi'].lower() == 'verticalbars'):
-            self.moduleStyleWifi = MODULE_DRAWER_STYLE_VERTICAL_BARS
-        elif (configData['config']['ModuleStyleWifi'].lower() == 'horizontalbars'):
-            self.moduleStyleWifi = MODULE_DRAWER_STYLE_HORIZONTAL_BARS
-        elif (configData['config']['ModuleStyleWifi'].lower() == 'rounded'):
-            self.moduleStyleWifi = MODULE_DRAWER_STYLE_ROUNDED
-        elif (configData['config']['ModuleStyleWifi'].lower() == 'square'):
-            self.moduleStyleWifi = MODULE_DRAWER_STYLE_SQUARE
+        if (configData['config']['ModuleStyle'].lower() == 'gappedsquare'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_GAPPED_SQUARE
+        elif (configData['config']['ModuleStyle'].lower() == 'verticalbars'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_VERTICAL_BARS
+        elif (configData['config']['ModuleStyle'].lower() == 'horizontalbars'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_HORIZONTAL_BARS
+        elif (configData['config']['ModuleStyle'].lower() == 'rounded'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_ROUNDED
+        elif (configData['config']['ModuleStyle'].lower() == 'square'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_SQUARE
         else:
-            self.moduleStyleWifi = MODULE_DRAWER_STYLE_SQUARE # This is the basic/standard QR code format
+            self.ModuleStyle = MODULE_DRAWER_STYLE_SQUARE # This is the basic/standard QR code format
 
         self.destFileWifi = f'QR_Code_Wifi_{filenameDateTime}.png'
 
@@ -140,15 +139,15 @@ def GenerateWifiQRCode(config):
     # Generate QR Code using the specified style
 
     # Vertical Bars 
-    if (config.moduleStyleWifi == MODULE_DRAWER_STYLE_VERTICAL_BARS):
+    if (config.ModuleStyle == MODULE_DRAWER_STYLE_VERTICAL_BARS):
         qr_img = qrWifi.make_image(image_factory=StyledPilImage,
-                            module_drawer=VerticalBarsDrawer(),
-                            color_mask=SolidFillColorMask(
-                                back_color=(
+                                   module_drawer=VerticalBarsDrawer(),
+                                   color_mask=SolidFillColorMask(
+                                   back_color=(
                                     config.backColorRed, 
                                     config.backColorGreen, 
                                     config.backColorBlue), 
-                                front_color=(
+                                   front_color=(
                                     config.frontColorRed, 
                                     config.frontColorGreen, 
                                     config.frontColorBlue), 
@@ -156,15 +155,15 @@ def GenerateWifiQRCode(config):
                             )
         
     # Horizontal Bars
-    elif (config.moduleStyleWifi == MODULE_DRAWER_STYLE_HORIZONTAL_BARS):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_HORIZONTAL_BARS):
         qr_img = qrWifi.make_image(image_factory=StyledPilImage,
-                            module_drawer=HorizontalBarsDrawer(),
-                            color_mask=SolidFillColorMask(
-                                back_color=(
+                                   module_drawer=HorizontalBarsDrawer(),
+                                   color_mask=SolidFillColorMask(
+                                   back_color=(
                                     config.backColorRed, 
                                     config.backColorGreen, 
                                     config.backColorBlue), 
-                                front_color=(
+                                   front_color=(
                                     config.frontColorRed, 
                                     config.frontColorGreen, 
                                     config.frontColorBlue), 
@@ -172,7 +171,7 @@ def GenerateWifiQRCode(config):
                             )
     
     # Gapped Squares
-    elif (config.moduleStyleWifi == MODULE_DRAWER_STYLE_GAPPED_SQUARE):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_GAPPED_SQUARE):
         qr_img = qrWifi.make_image(image_factory=StyledPilImage,
                             module_drawer=GappedSquareModuleDrawer(),
                             color_mask=SolidFillColorMask(
@@ -188,15 +187,15 @@ def GenerateWifiQRCode(config):
                             )
 
     # Squares - eg, the basic/standard QR code style
-    elif (config.moduleStyleWifi == MODULE_DRAWER_STYLE_SQUARE):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_SQUARE):
         qr_img = qrWifi.make_image(image_factory=StyledPilImage,
-                            module_drawer=SquareModuleDrawer(),
-                            color_mask=SolidFillColorMask(
-                                back_color=(
+                                   module_drawer=SquareModuleDrawer(),
+                                   color_mask=SolidFillColorMask(
+                                   back_color=(
                                     config.backColorRed, 
                                     config.backColorGreen, 
                                     config.backColorBlue), 
-                                front_color=(
+                                   front_color=(
                                     config.frontColorRed, 
                                     config.frontColorGreen, 
                                     config.frontColorBlue), 
@@ -204,15 +203,15 @@ def GenerateWifiQRCode(config):
                             )
 
     # Rounded - a slight variation of the basic/standard QR code style
-    elif (config.moduleStyleWifi == MODULE_DRAWER_STYLE_ROUNDED):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_ROUNDED):
         qr_img = qrWifi.make_image(image_factory=StyledPilImage,
-                            module_drawer=RoundedModuleDrawer(),
-                            color_mask=SolidFillColorMask(
-                                back_color=(
+                                   module_drawer=RoundedModuleDrawer(),
+                                   color_mask=SolidFillColorMask(
+                                   back_color=(
                                     config.backColorRed, 
                                     config.backColorGreen, 
                                     config.backColorBlue), 
-                                front_color=(
+                                   front_color=(
                                     config.frontColorRed, 
                                     config.frontColorGreen, 
                                     config.frontColorBlue), 
@@ -300,12 +299,11 @@ def main():
         log.critical('')
         log.critical(f'Command line:     {GetCommandLine()}')
         log.critical(f"QR Code File:     {objConfig.destFileWifi}")
-        log.critical(f"Module Style E:   {objConfig.moduleStyleWifi}")
-        log.critical(f"Module Style O:   {objConfig.moduleStyleOnboarding}")
+        log.critical(f"Module Style:     {objConfig.ModuleStyle}")
         log.critical(f"Version/Size:     {objConfig.versionSize}")
         log.critical(f"Border:           {objConfig.border}")
-        log.critical(f"Wifi Network:     {objConfig.wifiNetwork}")
-        log.critical(f"Wifi Password:    {objConfig.wifiPassword}")
+        log.critical(f"WiFi Network:     {objConfig.wifiNetwork}")
+        log.critical(f"WiFi Password:    {objConfig.wifiPassword}")
         log.critical(f"Front Color:      {objConfig.frontColorRed:3d} {objConfig.frontColorGreen:3d} {objConfig.frontColorBlue:3d}")
         log.critical(f"Back Color:       {objConfig.backColorRed:3d} {objConfig.backColorGreen:3d} {objConfig.backColorBlue:3d}")
 

@@ -62,7 +62,7 @@ class Config:
     backColorGreen = 0
     backColorBlue = 0
 
-    moduleStyleUrl = ''
+    ModuleStyle = ''
     versionSize = 5
     border = 4
 
@@ -85,18 +85,18 @@ class Config:
         self.versionSize = configData['config']['Size']
         self.border = configData['config']['Border']
 
-        if (configData['config']['ModuleStyleUrl'].lower() == 'gappedsquare'):
-            self.moduleStyleUrl = MODULE_DRAWER_STYLE_GAPPED_SQUARE
-        elif (configData['config']['ModuleStyleUrl'].lower() == 'verticalbars'):
-            self.moduleStyleUrl = MODULE_DRAWER_STYLE_VERTICAL_BARS
-        elif (configData['config']['ModuleStyleUrl'].lower() == 'horizontalbars'):
-            self.moduleStyleUrl = MODULE_DRAWER_STYLE_HORIZONTAL_BARS
-        elif (configData['config']['ModuleStyleUrl'].lower() == 'rounded'):
-            self.moduleStyleUrl = MODULE_DRAWER_STYLE_ROUNDED
-        elif (configData['config']['ModuleStyleUrl'].lower() == 'square'):
-            self.moduleStyleUrl = MODULE_DRAWER_STYLE_SQUARE
+        if (configData['config']['ModuleStyle'].lower() == 'gappedsquare'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_GAPPED_SQUARE
+        elif (configData['config']['ModuleStyle'].lower() == 'verticalbars'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_VERTICAL_BARS
+        elif (configData['config']['ModuleStyle'].lower() == 'horizontalbars'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_HORIZONTAL_BARS
+        elif (configData['config']['ModuleStyle'].lower() == 'rounded'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_ROUNDED
+        elif (configData['config']['ModuleStyle'].lower() == 'square'):
+            self.ModuleStyle = MODULE_DRAWER_STYLE_SQUARE
         else:
-            self.moduleStyleUrl = MODULE_DRAWER_STYLE_SQUARE # This is the basic/standard QR code format
+            self.ModuleStyle = MODULE_DRAWER_STYLE_SQUARE # This is the basic/standard QR code format
 
         self.url = configData['config']['Url']
         self.destFileUrl = f'QR_Code_Url_{filenameDateTime}.png'
@@ -135,7 +135,7 @@ def GenerateUrlQRCode(config):
     # Generate QR Code 
 
     # Vertical Bars 
-    if (config.moduleStyleUrl == MODULE_DRAWER_STYLE_VERTICAL_BARS):
+    if (config.ModuleStyle == MODULE_DRAWER_STYLE_VERTICAL_BARS):
         qr_img = qrUrl.make_image(image_factory=StyledPilImage,
                                   module_drawer=VerticalBarsDrawer(),
                                   color_mask=SolidFillColorMask(
@@ -151,7 +151,7 @@ def GenerateUrlQRCode(config):
                             )
         
     # Horizontal Bars
-    elif (config.moduleStyleUrl == MODULE_DRAWER_STYLE_HORIZONTAL_BARS):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_HORIZONTAL_BARS):
         qr_img = qrUrl.make_image(image_factory=StyledPilImage,
                                   module_drawer=HorizontalBarsDrawer(),
                                   color_mask=SolidFillColorMask(
@@ -167,7 +167,7 @@ def GenerateUrlQRCode(config):
                             )
     
     # Gapped Squares
-    elif (config.moduleStyleUrl == MODULE_DRAWER_STYLE_GAPPED_SQUARE):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_GAPPED_SQUARE):
         qr_img = qrUrl.make_image(image_factory=StyledPilImage,
                                   module_drawer=GappedSquareModuleDrawer(),
                                   color_mask=SolidFillColorMask(
@@ -183,7 +183,7 @@ def GenerateUrlQRCode(config):
                             )
 
     # Squares - eg, the basic/standard QR code style
-    elif (config.moduleStyleUrl == MODULE_DRAWER_STYLE_SQUARE):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_SQUARE):
         qr_img = qrUrl.make_image(image_factory=StyledPilImage,
                                   module_drawer=SquareModuleDrawer(),
                                   color_mask=SolidFillColorMask(
@@ -199,7 +199,7 @@ def GenerateUrlQRCode(config):
                             )
 
     # Rounded - a slight variation of the basic/standard QR code style
-    elif (config.moduleStyleUrl == MODULE_DRAWER_STYLE_ROUNDED):
+    elif (config.ModuleStyle == MODULE_DRAWER_STYLE_ROUNDED):
         qr_img = qrUrl.make_image(image_factory=StyledPilImage,
                                   module_drawer=RoundedModuleDrawer(),
                                   color_mask=SolidFillColorMask(
@@ -285,7 +285,7 @@ def main():
         log.critical('')
         log.critical(f'Command line:     {GetCommandLine()}')
         log.critical(f"QR Code File:     {objConfig.destFileUrl}")
-        log.critical(f"Module Style:     {objConfig.moduleStyleUrl}")
+        log.critical(f"Module Style:     {objConfig.ModuleStyle}")
         log.critical(f"Version/Size:     {objConfig.versionSize}")
         log.critical(f"Border:           {objConfig.border}")
         log.critical(f"Url:              {objConfig.url}")
