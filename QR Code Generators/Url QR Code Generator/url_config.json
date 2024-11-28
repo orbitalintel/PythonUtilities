@@ -13,8 +13,7 @@
             "g": 255,
             "b": 255
         },
-        "ModuleStyleEngagement": "GappedSquare",
-        "ModuleStyleUrl": "VerticalBars",
+        "ModuleStyle": "VerticalBars",
         "Size": 5,
         "Border": 2,
         "Url": "https://www.example.com",
