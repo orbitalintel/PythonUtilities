@@ -34,8 +34,8 @@ COPYRIGHT = '2024'
 
 # Global Directory settings
 utc = datetime.now(timezone.utc)
-directoryDate = utc.strftime("%Y.%m.%d_%H.%M") 
-filenameDateTime = utc.strftime("%Y.%m.%d_%H.%M.%S") 
+directoryDate = utc.strftime('%Y.%m.%d_%H.%M') 
+filenameDateTime = utc.strftime('%Y.%m.%d_%H.%M.%S') 
 baseDirectory = os.path.join(os.getcwd(), 'QRCode_Artifacts', directoryDate)
 logsDirectory = baseDirectory
 
@@ -238,38 +238,38 @@ def main():
     # Proceed with the program
     #
 
-    log.critical("     ____       __    _ __        __   ____      __       __")
-    log.critical("    / __ \\_____/ /_  (_) /_____ _/ /  /  _/___  / /____  / /")
-    log.critical("   / / / / ___/ __ \\/ / __/ __ `/ /   / // __ \\/ __/ _ \\/ / ")
-    log.critical("  / /_/ / /  / /_/ / / /_/ /_/ / /  _/ // / / / /_/  __/ /  ")
-    log.critical("  \\____/_/  /_.___/_/\\__/\\__,_/_/  /___/_/ /_/\\__/\\___/_/   ")
-    log.critical("")
-    log.critical("##############################################################")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("==============================================================")
-    log.critical("")
-    log.critical("                        Orbital Intel                         ")
-    log.critical("                WiFi Network QR Code Generator                ")
-    log.critical("")
-    log.critical("==============================================================")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("##############################################################")
-    log.critical("")
+    log.critical('     ____       __    _ __        __   ____      __       __')
+    log.critical('    / __ \\_____/ /_  (_) /_____ _/ /  /  _/___  / /____  / /')
+    log.critical('   / / / / ___/ __ \\/ / __/ __ `/ /   / // __ \\/ __/ _ \\/ / ')
+    log.critical('  / /_/ / /  / /_/ / / /_/ /_/ / /  _/ // / / / /_/  __/ /  ')
+    log.critical('  \\____/_/  /_.___/_/\\__/\\__,_/_/  /___/_/ /_/\\__/\\___/_/   ')
+    log.critical('')
+    log.critical('##############################################################')
+    log.critical('01001111 01110010 01100010 01101001 01110100 01100001 01101100')
+    log.critical('00100000 01001001 01101110 01110100 01100101 01101100 00000000')
+    log.critical('==============================================================')
+    log.critical('')
+    log.critical('                        Orbital Intel                         ')
+    log.critical('                WiFi Network QR Code Generator                ')
+    log.critical('')
+    log.critical('==============================================================')
+    log.critical('01001111 01110010 01100010 01101001 01110100 01100001 01101100')
+    log.critical('00100000 01001001 01101110 01110100 01100101 01101100 00000000')
+    log.critical('##############################################################')
+    log.critical('')
     log.critical(f'Copyright (c) {COPYRIGHT} Orbital Intelligence LLC')
-    log.critical(f"Version {VERSION}")
-    log.critical("")
+    log.critical(f'Version {VERSION}')
+    log.critical('')
 
     # Configure and Process command line arguments
-    parser = argparse.ArgumentParser(description="WifiQRCodeGenerator - WiFi Network QR Code Generation Utility"
+    parser = argparse.ArgumentParser(description='WifiQRCodeGenerator - WiFi Network QR Code Generation Utility'
 		, prog='WifiQRCodeGenerator.py'
 		, formatter_class=RawTextHelpFormatter)
 
     parser.add_argument('configfile', help=f'Provide the configuration JSON file with the Engagement settings.')
-    parser.add_argument('network', default="", help=f'Set the WiFi network name (SSID).')
-    parser.add_argument('password', default="", help=f'Set the Password for the WiFi network.')
-    parser.add_argument("--verbose",  "-v", action="store_true", help="Flag to display verbose output \nVerbose output is disabled by default")
+    parser.add_argument('network', default='', help=f'Set the WiFi network name (SSID).')
+    parser.add_argument('password', default='', help=f'Set the Password for the WiFi network.')
+    parser.add_argument('--verbose',  '-v', action='store_true', help='Flag to display verbose output \nVerbose output is disabled by default')
     args = parser.parse_args()
 
     # Apply the verbose output setting
@@ -299,15 +299,15 @@ def main():
         # Display program configuration data
         log.critical('')
         log.critical(f'Command line:     {GetCommandLine()}')
-        log.critical(f"QR Code File:     {objConfig.destFileWifi}")
-        log.critical(f"Module Style E:   {objConfig.moduleStyleWifi}")
-        log.critical(f"Module Style O:   {objConfig.moduleStyleOnboarding}")
-        log.critical(f"Version/Size:     {objConfig.versionSize}")
-        log.critical(f"Border:           {objConfig.border}")
-        log.critical(f"Wifi Network:     {objConfig.wifiNetwork}")
-        log.critical(f"Wifi Password:    {objConfig.wifiPassword}")
-        log.critical(f"Front Color:      {objConfig.frontColorRed:3d} {objConfig.frontColorGreen:3d} {objConfig.frontColorBlue:3d}")
-        log.critical(f"Back Color:       {objConfig.backColorRed:3d} {objConfig.backColorGreen:3d} {objConfig.backColorBlue:3d}")
+        log.critical(f'QR Code File:     {objConfig.destFileWifi}')
+        log.critical(f'Module Style E:   {objConfig.moduleStyleWifi}')
+        log.critical(f'Module Style O:   {objConfig.moduleStyleOnboarding}')
+        log.critical(f'Version/Size:     {objConfig.versionSize}')
+        log.critical(f'Border:           {objConfig.border}')
+        log.critical(f'Wifi Network:     {objConfig.wifiNetwork}')
+        log.critical(f'Wifi Password:    {objConfig.wifiPassword}')
+        log.critical(f'Front Color:      {objConfig.frontColorRed:3d} {objConfig.frontColorGreen:3d} {objConfig.frontColorBlue:3d}')
+        log.critical(f'Back Color:       {objConfig.backColorRed:3d} {objConfig.backColorGreen:3d} {objConfig.backColorBlue:3d}')
 
         log.critical('')
 
@@ -349,7 +349,7 @@ def main():
         log.critical('######################################################')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 
 

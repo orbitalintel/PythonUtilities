@@ -35,8 +35,8 @@ COPYRIGHT = '2023-2024'
 
 # Global Directory settings
 utc = datetime.now(timezone.utc)
-directoryDate = utc.strftime("%Y.%m.%d_%H.%M") 
-filenameDateTime = utc.strftime("%Y.%m.%d_%H.%M.%S") 
+directoryDate = utc.strftime('%Y.%m.%d_%H.%M') 
+filenameDateTime = utc.strftime('%Y.%m.%d_%H.%M.%S') 
 baseDirectory = os.path.join(os.getcwd(), 'QRCode_Artifacts', directoryDate)
 logsDirectory = baseDirectory
 
@@ -122,7 +122,7 @@ class Config:
             self.destFileTimestamp = f'{destinationFile.split(".")[0]}_{filenameDateTime}.{destinationFile.split(".")[1]}'
             self.destFile = destinationFile
         except:
-            log.error(f"Invalid destination filename [{destinationFile}]. Using the default [{DEFAULT_QRCODE_FILENAME}] filename.")
+            log.error(f'Invalid destination filename [{destinationFile}]. Using the default [{DEFAULT_QRCODE_FILENAME}] filename.')
             self.destFileTimestamp = f'{DEFAULT_QRCODE_FILENAME.split(".")[0]}_{filenameDateTime}.{DEFAULT_QRCODE_FILENAME.split(".")[1]}'
             self.destFile = DEFAULT_QRCODE_FILENAME
 
@@ -274,37 +274,37 @@ def main():
     # Proceed with the program
     #
 
-    log.critical("     ____       __    _ __        __   ____      __       __")
-    log.critical("    / __ \\_____/ /_  (_) /_____ _/ /  /  _/___  / /____  / /")
-    log.critical("   / / / / ___/ __ \\/ / __/ __ `/ /   / // __ \\/ __/ _ \\/ / ")
-    log.critical("  / /_/ / /  / /_/ / / /_/ /_/ / /  _/ // / / / /_/  __/ /  ")
-    log.critical("  \\____/_/  /_.___/_/\\__/\\__,_/_/  /___/_/ /_/\\__/\\___/_/   ")
-    log.critical("")
-    log.critical("##############################################################")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("==============================================================")
-    log.critical("")
-    log.critical("                        Orbital Intel                         ")
-    log.critical("                   QR Code VCard Generator                    ")
-    log.critical("")
-    log.critical("==============================================================")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("01001111 01110010 01100010 01101001 01110100 01100001 01101100")
-    log.critical("##############################################################")
-    log.critical("")
+    log.critical('     ____       __    _ __        __   ____      __       __')
+    log.critical('    / __ \\_____/ /_  (_) /_____ _/ /  /  _/___  / /____  / /')
+    log.critical('   / / / / ___/ __ \\/ / __/ __ `/ /   / // __ \\/ __/ _ \\/ / ')
+    log.critical('  / /_/ / /  / /_/ / / /_/ /_/ / /  _/ // / / / /_/  __/ /  ')
+    log.critical('  \\____/_/  /_.___/_/\\__/\\__,_/_/  /___/_/ /_/\\__/\\___/_/   ')
+    log.critical('')
+    log.critical('##############################################################')
+    log.critical('01001111 01110010 01100010 01101001 01110100 01100001 01101100')
+    log.critical('00100000 01001001 01101110 01110100 01100101 01101100 00000000')
+    log.critical('==============================================================')
+    log.critical('')
+    log.critical('                        Orbital Intel                         ')
+    log.critical('                   QR Code VCard Generator                    ')
+    log.critical('')
+    log.critical('==============================================================')
+    log.critical('01001111 01110010 01100010 01101001 01110100 01100001 01101100')
+    log.critical('00100000 01001001 01101110 01110100 01100101 01101100 00000000')
+    log.critical('##############################################################')
+    log.critical('')
     log.critical(f'Copyright (c) {COPYRIGHT} Orbital Intelligence LLC')
-    log.critical(f"Version {VERSION}")
-    log.critical("")
+    log.critical(f'Version {VERSION}')
+    log.critical('')
 
     # Configure and Process command line arguments
-    parser = argparse.ArgumentParser(description="ContactCardQRCodeGenerator - QR Code VCard Contact Card Generation Utility"
+    parser = argparse.ArgumentParser(description='ContactCardQRCodeGenerator - QR Code VCard Contact Card Generation Utility'
 		, prog='ContactCardQRCodeGenerator.py'
 		, formatter_class=RawTextHelpFormatter)
 
     parser.add_argument('configfile', help=f'Provide the configuration JSON file with contact card settings.')
     parser.add_argument('--destfile', '-df', default=DEFAULT_QRCODE_FILENAME, help=f'Set the destination filename for the generated QR code\nDefault is {DEFAULT_QRCODE_FILENAME}')
-    parser.add_argument("--verbose",  "-v", action="store_true", help="Flag to display verbose output \nVerbose output is disabled by default")
+    parser.add_argument('--verbose',  '-v', action='store_true', help='Flag to display verbose output \nVerbose output is disabled by default')
     args = parser.parse_args()
 
     # Apply the verbose output setting
@@ -329,18 +329,18 @@ def main():
         # Display program configuration data
         log.critical('')
         log.critical(f'Command line: {GetCommandLine()}')
-        log.critical(f"QR Code File: {objConfig.destFile}")
-        log.critical(f"Module Style: {objConfig.moduleStyle}")
-        log.critical(f"Version/Size: {objConfig.versionSize}")
-        log.critical(f"First Name:   {objConfig.firstName}")
-        log.critical(f"Last Name:    {objConfig.lastName}")
-        log.critical(f"Title:        {objConfig.title}")
-        log.critical(f"Organization: {objConfig.organization}")
-        log.critical(f"Phone:        {objConfig.phone}")
-        log.critical(f"Email:        {objConfig.email}")
-        log.critical(f"Url:          {objConfig.url}")
-        log.critical(f"Front Color:  {objConfig.frontColorRed:3d} {objConfig.frontColorGreen:3d} {objConfig.frontColorBlue:3d}")
-        log.critical(f"Back Color:   {objConfig.backColorRed:3d} {objConfig.backColorGreen:3d} {objConfig.backColorBlue:3d}")
+        log.critical(f'QR Code File: {objConfig.destFile}')
+        log.critical(f'Module Style: {objConfig.moduleStyle}')
+        log.critical(f'Version/Size: {objConfig.versionSize}')
+        log.critical(f'First Name:   {objConfig.firstName}')
+        log.critical(f'Last Name:    {objConfig.lastName}')
+        log.critical(f'Title:        {objConfig.title}')
+        log.critical(f'Organization: {objConfig.organization}')
+        log.critical(f'Phone:        {objConfig.phone}')
+        log.critical(f'Email:        {objConfig.email}')
+        log.critical(f'Url:          {objConfig.url}')
+        log.critical(f'Front Color:  {objConfig.frontColorRed:3d} {objConfig.frontColorGreen:3d} {objConfig.frontColorBlue:3d}')
+        log.critical(f'Back Color:   {objConfig.backColorRed:3d} {objConfig.backColorGreen:3d} {objConfig.backColorBlue:3d}')
         log.critical('')
 
         log.critical('Generating VCard Contact Card QR Code...')
@@ -382,7 +382,7 @@ def main():
         log.critical('######################################################')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 
 
