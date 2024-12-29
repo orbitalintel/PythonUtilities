@@ -138,9 +138,9 @@ def main():
 
         # Display program configuration data
         log.critical('')
-        log.critical(f'Command line:     {GetCommandLine()}')
-        log.critical(f'Source PNG File:  {sourceFile}')
-        log.critical(f'Output GIF File:  {destFile}')
+        log.critical(f'Command line:       {GetCommandLine()}')
+        log.critical(f'Source Video File:  {sourceFile}')
+        log.critical(f'Output GIF File:    {destFile}')
         log.critical('')
 
         # Process the video file to .gif file conversion
