@@ -11,3 +11,8 @@
 `UrlQRCodeGenerator.py` - Generates a QR code for opening a URL in a web browser.
 
 `WifiQRCodeGenerator.py` - Generates a QR code for automatically joining a WiFi network.
+
+**Video2Gif**
+
+`video2gif.py` - Generates a .gif file from a video file (eg, .mp4, .avi, .mov, etc).
+
